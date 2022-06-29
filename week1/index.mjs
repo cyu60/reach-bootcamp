@@ -1,5 +1,4 @@
 import { loadStdlib } from "@reach-sh/stdlib";
-// import * as backend from "../index.main.mjs";
 import * as backend from "./build/index.main.mjs";
 
 const stdlib = loadStdlib();
