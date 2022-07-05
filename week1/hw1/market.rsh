@@ -2,13 +2,13 @@
 
 const Player = {
   seePrice: Fun([], UInt),
-  getDescription: Fun([], Bytes(1)), // bytes correct -- 128?
+  getDescription: Fun([], Bytes(128)), // bytes correct -- 128?- No it isnt, 128 is the space or the characters so it can be 128 or 256
 };
 
 export const main = Reach.App(() => {
-  const Creator = Participant("Creator", { ...Player });
-  const Bidder = Participant("Bidder", { ...Player });
-  const Buyer = Participant("Buyer", { ...Player });
+  const Creator = Participant("Creator", Player);
+  const Bidder = Participant("Bidder", Player);
+  const Buyer = Participant("Buyer", Player);
   init();
 
   Bidder.only(() => {
@@ -22,5 +22,4 @@ export const main = Reach.App(() => {
   });
   Buyer.publish(description);
   commit();
-  // should add commit here?
 });
