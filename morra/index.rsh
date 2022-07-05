@@ -9,8 +9,8 @@ const Player = {
 };
 
 export const main = Reach.App(() => {
-  const Alice = Participant("Alice", { ...Player });
-  const Bob = Participant("Bob", { ...Player });
+  const Alice = Participant("Alice", Player);
+  const Bob = Participant("Bob", Player);
   init();
   Alice.only(() => {
     const fingersAlice = declassify(interact.getFingers());
@@ -31,10 +31,10 @@ export const main = Reach.App(() => {
   const outcomeBob = guessBob === totalFingers ? 1 : 0;
   const outcomeAlice = guessAlice === totalFingers ? 1 : 0;
 
-  // should they only see their own outcome??
+  // should they only see their own outcome??- yes they should be able to see their outcome
 
-  // for signifying who is who -- would be better to pass string?
-  const ALICE = 0;
+  // for signifying who is who -- would be better to pass string?- I dont understand this question
+  const ALICE = 0;//what is this meant to do?
   const BOB = 1;
 
   each([Alice, Bob], () => {
