@@ -20,5 +20,5 @@ export const main = Reach.App(() => {
   });
   Vanna.publish(challengeVanna);
   commit();
-  // should add commit here?
+  // Yes you should commit at the end of every consensus step, a commit signifies the end of a consensus step.
 });
