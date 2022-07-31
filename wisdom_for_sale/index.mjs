@@ -26,7 +26,11 @@ const showBalance = async (acc) =>
 (async () => {
   const commonInteract = {
     reportTransfer: (payment) => {
-      console.log(`The contract paid ${toSU(payment)} ${suStr} to ${role == 'seller' ? 'you' : 'the seller'}.`);
+      console.log(
+        `The contract paid ${toSU(payment)} ${suStr} to ${
+          role == "seller" ? "you" : "the seller"
+        }.`
+      );
     },
     reportPayment: (payment) => {
       console.log(
@@ -44,6 +48,13 @@ const showBalance = async (acc) =>
   if (role === "seller") {
     const sellerInteract = {
       ...commonInteract,
+      // price: await ask.ask("Enter price of wisdom (default 5):", (p) => {
+      //   p = parseInt(p);
+      //   let value = !p ? 5 : p;
+      //   console.log(`price is ${value}` );
+      //   // console.log(typeof value)
+      //   return value;
+      // }),
       price: toAU(5),
       wisdom: await ask.ask(
         "Enter a wise phrase, or press Enter for default:",
@@ -56,6 +67,7 @@ const showBalance = async (acc) =>
         }
       ),
       reportReady: async (price) => {
+        // console.log(`wisdom is ${await wisdom}`);
         console.log(`Your wisdom is for sale at ${toSU(price)} ${suStr}.`);
         console.log(`Contract info: ${JSON.stringify(await ctc.getInfo())}`);
       },
